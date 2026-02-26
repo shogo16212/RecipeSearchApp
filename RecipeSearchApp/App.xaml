@@ -1,0 +1,12 @@
+﻿<Application x:Class="RecipeSearchApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:RecipeSearchApp"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="Red" Color="#ff6b6b"/>
+        <SolidColorBrush x:Key="Blue" Color="#4ecdc4"/>
+        
+        
+    </Application.Resources>
+</Application>
