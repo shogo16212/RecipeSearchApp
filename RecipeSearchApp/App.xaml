@@ -6,7 +6,13 @@
     <Application.Resources>
         <SolidColorBrush x:Key="Red" Color="#ff6b6b"/>
         <SolidColorBrush x:Key="Blue" Color="#4ecdc4"/>
-        
-        
+
+        <Style TargetType="Window" x:Key="Default">
+            <Setter Property="FontSize" Value="17"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource Blue}"/>
+        </Style>
     </Application.Resources>
 </Application>
