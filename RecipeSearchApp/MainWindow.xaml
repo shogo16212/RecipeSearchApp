@@ -4,9 +4,50 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RecipeSearchApp"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Style="{StaticResource Default}"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"
+        Title="MainWindow" Height="800" Width="1200">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
+        <Image Source="/recipe_logo.png" Height="100" Margin="5" HorizontalAlignment="Left"/>
+
+        <TextBlock Text="レシピ検索アプリ" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="22"/>
+
+        <StackPanel Background="{StaticResource Red}" Grid.Row="1"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
+            <!--<TextBlock Textカテゴリー：" VerticalAlignment="Center"/>
+            <ComboBox Margin="5="" x:Name="categoryComboBox" Width="250"/>-->
+            <ComboBox x:Name="largeComboBox" SelectionChanged="largeComboBox_SelectionChanged" Width="250" Margin="5" DisplayMemberPath="CategoryName"/>
+            <ComboBox x:Name="mediumComboBox" SelectionChanged="mediumComboBox_SelectionChanged" Width="250" Margin="5" DisplayMemberPath="CategoryName"/>
+            <ComboBox x:Name="smallComboBox" SelectionChanged="smallComboBox_SelectionChanged" Width="250" Margin="5" DisplayMemberPath="CategoryName"/>
+            <TextBlock Text="フリーワード：" VerticalAlignment="Center"/>
+            <TextBox Margin="5" x:Name="searchTextBox" TextChanged="searchTextBox_TextChanged" Width="250"/>
+            <Button x:Name="searchButton" Click="searchButton_Click" Content="検索" Margin="5"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center">
+            <TextBlock Text="カテゴリーページ：" Margin="5"/>
+            <TextBlock x:Name="linkTextBlock">
+                <Hyperlink x:Name="categoryHyperLink" Click="categoryHyperLink_Click"></Hyperlink>
+            </TextBlock>
+        </StackPanel>
+
+        <DataGrid x:Name="dataGrid" Margin="5" Grid.Row="4" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="タイトル" Binding="{Binding aa}"/>
+                <DataGridTextColumn Header="材料" Binding="{Binding aa}"/>
+                <DataGridTextColumn Header="URL" Binding="{Binding aa}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
     </Grid>
 </Window>
